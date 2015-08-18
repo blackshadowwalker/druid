@@ -2106,6 +2106,11 @@ public class DruidDataSource extends DruidAbstractDataSource
             for (int i = 0; i < checkCount; ++i) {
                 DruidConnectionHolder connection = connections[i];
 
+                long phyConntectTimeMillis = currentTimeMillis - connection.getConnectTimeMillis();
+                if( phyConntectTimeMillis  >= phyTimeoutMillis  ){
+                    evictList.add(connection);
+                }
+
                 if (checkTime) {
                     long idleMillis = currentTimeMillis - connection.getLastActiveTimeMillis();
                     if (idleMillis >= minEvictableIdleTimeMillis) {

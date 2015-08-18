@@ -97,6 +97,7 @@ public abstract class DruidAbstractDataSource extends WrapperAdapter implements 
      * @see #setMinEvictableIdleTimeMillis
      */
     public static final long                           DEFAULT_MIN_EVICTABLE_IDLE_TIME_MILLIS    = 1000L * 60L * 30L;
+    public static final long                           DEFAULT_PHY_TIMEOUT_MILLIS                = 1000L * 60L * 60L * 5;
 
     protected volatile boolean                         defaultAutoCommit                         = true;
     protected volatile Boolean                         defaultReadOnly;
@@ -158,6 +159,8 @@ public abstract class DruidAbstractDataSource extends WrapperAdapter implements 
     protected volatile int                             numTestsPerEvictionRun                    = DEFAULT_NUM_TESTS_PER_EVICTION_RUN;
 
     protected volatile long                            minEvictableIdleTimeMillis                = DEFAULT_MIN_EVICTABLE_IDLE_TIME_MILLIS;
+
+    protected volatile long                            phyTimeoutMillis                          = DEFAULT_PHY_TIMEOUT_MILLIS;
 
     protected volatile boolean                         removeAbandoned;
 

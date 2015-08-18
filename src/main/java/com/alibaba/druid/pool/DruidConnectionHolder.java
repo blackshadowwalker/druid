@@ -276,4 +276,8 @@ public final class DruidConnectionHolder {
         return buf.toString();
     }
 
+    public long getConnectTimeMillis(){
+        return this.connectTimeMillis;
+    }
+
 }
